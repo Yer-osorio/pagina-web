@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11100f">
+  <title>Un regalo para ti ♡</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar"><span>♥ Un pequeño regalo</span><span class="step">HECHO CON AMOR</span></header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">PARA MI PERSONA FAVORITA</p>
+      <h1><span id="nameOne">Yerson</span> <em>&</em> <span id="nameTwo">Sofía</span></h1>
+      <div class="hero-photo photo-frame"><img src="img/foto0.jpg" alt="Nuestro recuerdo 1"></div>
+      <div class="counter card">
+        <p>Juntos desde hace</p><h2 id="timeTogether">Calculando nuestro tiempo…</h2><small id="startDateLabel"></small>
+      </div>
+      <p class="scroll-hint">DESLIZA PARA VER NUESTROS RECUERDOS ↓</p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">NUESTROS RECUERDOS</p><h2>Seis momentos, infinitas razones</h2>
+      <p class="muted">Cada foto guarda una parte de nuestra historia.</p>
+      <div class="gallery">
+        <figure class="photo-frame"><img src="img/foto2.jpg" alt="Recuerdo 1"><figcaption>Un día para recordar</figcaption></figure>
+        <figure class="photo-frame"><img src="img/foto3.jpg" alt="Recuerdo 2"><figcaption>Contigo todo es mejor</figcaption></figure>
+        <figure class="photo-frame"><img src="img/foto4.jpg" alt="Recuerdo 3"><figcaption>Una sonrisa que me encanta</figcaption></figure>
+        <figure class="photo-frame"><img src="img/foto5.jpg" alt="Recuerdo 4"><figcaption>Pequeños grandes momentos</figcaption></figure>
+        <figure class="photo-frame"><img src="img/foto6.jpg" alt="Recuerdo 5"><figcaption>Y los que nos faltan</figcaption></figure>
+        <figure class="photo-frame"><img src="img/foto6.jpg" alt="Recuerdo 6"><figcaption>Y los que nos faltan</figcaption></figure>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">UN MENSAJE PRIVADO</p><h2>Hay algo que quiero decirte</h2>
+      <div class="letter-card card">
+        <div class="envelope" id="envelope"><div class="letter-paper"><span>Para ti, con amor</span><p>♡</p></div><div class="flap"></div><div class="envelope-front">♥</div></div>
+        <button id="openLetter" class="gold-btn">Abrir carta</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">DONDE EMPEZÓ TODO</p><h2>Nuestros lugares</h2>
+      <p class="muted">Toca los marcadores para descubrir por qué cada lugar es especial.</p>
+      <div id="map"></div><p class="tiny muted">El mapa necesita una clave de Google Maps configurada en <code>js/config.js</code>.</p>
+      <div id="placeList" class="place-list"></div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">VALES POR UNA SONRISA</p><h2>Momentos para canjear</h2>
+      <p class="muted">Elige cada uno cuando quieras vivir ese plan conmigo.</p>
+      <div id="couponList" class="coupon-list"></div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">LA SUERTE ESTÁ DE TU LADO</p><h2>La ruleta de los premios</h2>
+      <p class="muted">Gira y descubre qué plan te toca reclamar.</p>
+      <div class="wheel-wrap"><div class="pointer">▼</div><canvas id="wheel" width="600" height="600" aria-label="Ruleta de premios"></canvas></div>
+      <button id="spinWheel" class="gold-btn">Girar la ruleta</button><p id="wheelResult" class="result" aria-live="polite">¡Que la suerte te acompañe! ♡</p>
+    </section>
+
+    <section class="section proposal">
+      <p class="eyebrow">TENGO ALGO QUE PREGUNTARTE</p><div class="heart">♥</div>
+      <h2>¿Puedo ser tu novio?</h2>
+      <p id="proposalMessage" class="muted">Tengo una pregunta importante para ti…</p>
+      <div class="proposal-buttons"><button id="yesBtn" class="gold-btn">Sí 💛</button><button id="noBtn" class="outline-btn">No</button></div>
+    </section>
+    <footer>Hecho con cariño, para crear recuerdos que duren mucho más que esta página ♡</footer>
+  </main>
+
+  <div class="modal" id="letterModal" aria-hidden="true"><div class="modal-content letter-content"><button class="close-modal" data-close="letterModal" aria-label="Cerrar">×</button><p class="eyebrow">CON TODO MI AMOR</p><h2>Una carta para ti</h2><div id="letterText" class="letter-text"></div><button class="outline-btn" data-close="letterModal">Cerrar carta</button></div></div>
+  <div class="modal" id="messageModal" aria-hidden="true"><div class="modal-content"><button class="close-modal" data-close="messageModal" aria-label="Cerrar">×</button><div class="big-heart">♥</div><h2 id="messageTitle">¡Sí! 💛</h2><p id="messageBody"></p><button class="gold-btn" data-close="messageModal">Cerrar</button></div></div>
+  <script src="js/config.js"></script><script src="js/app.js"></script>
+  <script async defer id="googleMapsScript"></script>
+</body></html>

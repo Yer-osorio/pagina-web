@@ -1,0 +1,45 @@
+# Un pequeño regalo — página web romántica
+
+## 1. Abrir en Visual Studio Code
+1. Descomprime `mimo_gift_web.zip`.
+2. Abre VS Code y elige **Archivo > Abrir carpeta...**. Selecciona `mimo_gift_web`.
+3. Instala la extensión **Live Server** (Ritwick Dey) y pulsa **Go Live** desde `index.html`. También puedes abrir `index.html` directamente, pero Live Server suele funcionar mejor.
+
+## 2. Cambiar las seis fotos
+En la carpeta `img` encontrarás `foto1.jpg` hasta `foto6.jpg`. Reemplaza cada imagen por tu foto, manteniendo exactamente el mismo nombre y extensión JPG. Si tu foto está en PNG, conviértela a JPG antes de reemplazarla. La foto 1 es la principal y las fotos 2–6 aparecen en la galería.
+
+## 3. Personalizar nombres, fecha, carta, canción y premios
+Abre `js/config.js` y cambia:
+- `names.first` y `names.second`: los nombres que aparecerán en el título.
+- `startDate`: fecha en formato `AAAA-MM-DDTHH:MM:SS`, por ejemplo `2025-02-14T19:30:00`. Usa la fecha real desde la que quieres contar.
+- `letter`: texto de la carta entre las comillas invertidas.
+- `youtubeUrl`: pega el enlace normal de YouTube de la canción.
+- `coupons`: edita los vales para canjear.
+- `prizes`: edita los premios de la ruleta.
+
+**Importante sobre YouTube:** los navegadores suelen bloquear la reproducción automática con sonido. La página intenta iniciar la canción en silencio, ya que ese modo tiene más posibilidades de funcionar. El visitante puede activar el sonido en el reproductor de YouTube si el navegador lo permite. No es posible garantizar autoplay con audio por políticas del navegador.
+
+## 4. Activar Google Maps (requiere clave)
+1. Entra a https://console.cloud.google.com/
+2. Crea un proyecto, vincula una cuenta de facturación y habilita **Maps JavaScript API**.
+3. En **APIs y servicios > Credenciales**, crea una clave de API.
+4. Restringe la clave para que solo funcione en tu sitio cuando lo publiques. Para pruebas locales, configura las restricciones de forma apropiada para localhost.
+5. Pega la clave en `googleMapsApiKey` en `js/config.js`, reemplazando `PEGA_AQUI_TU_API_KEY`.
+6. En `places`, cambia los tres ejemplos por tus sitios. `lat` y `lng` son las coordenadas decimales del lugar. Puedes obtenerlas en Google Maps: mantén presionado/clic derecho en el punto y copia las coordenadas.
+   Ejemplo: `{ title: "Nuestra primera cita", description: "Aquí empezó todo.", lat: 6.2442, lng: -75.5812 }`
+7. Para agregar otro punto, duplica una línea/objeto dentro del arreglo `places`, separando cada objeto con coma.
+
+No publiques tu clave sin restricciones. Google Maps puede requerir facturación y generar costos según el uso.
+
+## 5. Editar los textos de los lugares
+Los lugares se muestran como marcadores en el mapa. Edita `title`, `description`, `lat` y `lng` de cada elemento de `places`. Puedes agregar tantos como quieras.
+
+## 6. Probar y compartir
+Prueba botones, carta, ruleta y canjes desde Live Server. Para compartir la página por internet necesitarás publicarla en un servicio de hosting estático, por ejemplo GitHub Pages, Netlify o Vercel. El mapa necesita que la clave esté autorizada para el dominio publicado.
+
+## Estructura
+- `index.html`: contenido de la página.
+- `css/styles.css`: diseño y colores.
+- `js/config.js`: tus datos y personalización.
+- `js/app.js`: contador, carta, mapa, canjes, ruleta y pregunta.
+- `img/foto1.jpg` … `img/foto6.jpg`: imágenes reemplazables.
