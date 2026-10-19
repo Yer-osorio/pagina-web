@@ -30,7 +30,7 @@ cfg.coupons.forEach((c,i)=>{
  const card=document.createElement("div"); card.className="coupon";
  card.innerHTML=`<div><h3>♥ ${escapeHTML(c.title)}</h3><p>${escapeHTML(c.description)}</p></div><button class="outline-btn">Canjear</button>`;
  const btn=card.querySelector("button");
- btn.addEventListener("click",()=>{if(card.classList.contains("redeemed"))return;card.classList.add("redeemed");btn.textContent="Canjeado ✓";$("#messageTitle").textContent="¡Vale canjeado!";$("#messageBody").textContent=`Has canjeado: ${c.title}. ¡Ahora toca hacerlo realidad!`;openModal("messageModal");});
+ btn.addEventListener("click",()=>{if(card.classList.contains("redeemed"))return;card.classList.add("redeemed");btn.textContent="Canjeado ✓";$("#messageTitle").textContent="¡Momento canjeado!";$("#messageBody").textContent=`Has canjeado: ${c.title}. ¡Ahora toca hacerlo realidad!`;openModal("messageModal");});
  coupons.appendChild(card);
 });
 function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
@@ -66,4 +66,4 @@ $("#spinWheel").addEventListener("click",()=>{if(spinning)return;spinning=true;$
 const noBtn=$("#noBtn"), yesBtn=$("#yesBtn");let noMoves=0;
 function dodgeNo(){noMoves++;noBtn.style.position="fixed";noBtn.style.zIndex="15";noBtn.style.left=(8+Math.random()*75)+"vw";noBtn.style.top=(8+Math.random()*78)+"vh";noBtn.style.transform=`rotate(${Math.random()*30-15}deg)`;if(noMoves>=7){noBtn.style.opacity="0";noBtn.style.pointerEvents="none";setTimeout(()=>noBtn.remove(),350);}}
 noBtn.addEventListener("mouseenter",dodgeNo);noBtn.addEventListener("click",dodgeNo);noBtn.addEventListener("touchstart",e=>{e.preventDefault();dodgeNo();},{passive:false});
-yesBtn.addEventListener("click",()=>{$("#messageTitle").textContent="¡Me hiciste muy feliz! 💛";$("#messageBody").textContent="Prometo cuidar este cariño, seguir creando recuerdos y hacer que esta historia tenga muchos capítulos bonitos.";openModal("messageModal");$("#proposalMessage").textContent="¡Dijiste que sí! Este es el comienzo de algo muy bonito ♡";noBtn.remove();});
+yesBtn.addEventListener("click",()=>{$("#messageTitle").textContent="¡Me haces muy feliz! 🤍";$("#messageBody").textContent="Prometo cuidar este amor, seguir creando recuerdos y hacer que esta historia tenga muchos capítulos bonitos.";openModal("messageModal");$("#proposalMessage").textContent="¡Dijiste que sí! Este es el comienzo de algo muy bonito ♡";noBtn.remove();});
