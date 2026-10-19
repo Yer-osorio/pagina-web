@@ -6,7 +6,7 @@ window.GIFT_CONFIG = {
   youtubeUrl: "https://youtu.be/y6hsqxoJvt8?si=5Kl3QdhhurvCpyVm",
   letter: `Mi amor,
 
-Empiezo escribiendo esto desde hoy, miércoles 14 de octubre, anhelando que todo salga bonito para hacerte la pregunta de si puedo ser tu novio, aquel fin de semana en el que estoy planeando todo con tanta ilusión, y así, tal cual, leerás esto.
+Empiezo escribiendo esto desde hoy, miércoles 14 de octubre, anhelando que todo salga bonito, aquel fin de semana en el que estoy planeando todo con tanta ilusión, y así, tal cual, leerás esto.
 
 Desde que llegaste a mi vida, todo fue tomando un color diferente, pero lamentablemente, también llegaron los baches en el camino, nos hicimos daño, sufrimos, lloramos y pasamos por momentos en los que quizás no sabíamos qué iba a pasar con nosotros, pero a pesar de todo, nunca dejamos de pensarnos, de extrañarnos y de llevarnos en el corazón, y si hay algo bonito de todo este camino, es que hoy seguimos aquí, juntos, sanando, aprendiendo y tratando de corregir los errores del pasado.
 
