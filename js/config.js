@@ -46,7 +46,7 @@ Yerson.`,
     { title: "Un recuerdo bonito", description: "Un lugar que siempre me hará sonreír.", lat: 6.299798, lng: -75.473642 },
     { title: "Nuestro primer viaje a la playa", description: "Tenemos que regresar juntos.", lat: 8.472524, lng: -76.805657 },
     { title: "Nuestro primera cita", description: "Los girasoles hablaron", lat: 6.363085, lng: -75.570193 },
-    { title: "Donde te vas a volver mi novia", description: "Un poco lejos pero especial", lat: 6.187067, lng: -75.645530 }
+    { title: "Donde te volviste mi novia", description: "Un poco lejos pero especial", lat: 6.187067, lng: -75.645530 }
 
   ],
   coupons: [
