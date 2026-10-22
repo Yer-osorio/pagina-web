@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#11100f">
+
+    <title>Un regalo para ti ♡</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- BARRA SUPERIOR -->
+    <header class="topbar">
+        <span>♥ Un pequeño regalo</span>
+        <span class="step">HECHO CON AMOR</span>
+    </header>
+
+    <main>
+        <!-- PORTADA Y CONTADOR -->
+        <section class="hero">
+            <p class="eyebrow">PARA MI PERSONA FAVORITA</p>
+
+            <h1>
+                <span id="nameOne">Tu nombre</span>
+                <em>&</em>
+                <span id="nameTwo">Mi amor</span>
+            </h1>
+
+            <div class="hero-photo photo-frame">
+                <img src="img/foto0.jpg" alt="Nuestro recuerdo especial">
+            </div>
+
+            <div class="counter card">
+                <p>Juntos desde hace</p>
+                <h2 id="timeTogether">Calculando nuestro tiempo…</h2>
+                <small id="startDateLabel"></small>
+            </div>
+
+            <p class="scroll-hint">
+                DESLIZA PARA VER NUESTROS RECUERDOS ↓
+            </p>
+        </section>
+
+        <!-- GALERÍA DE SEIS FOTOGRAFÍAS -->
+        <section class="section" id="recuerdos">
+            <p class="eyebrow">NUESTROS RECUERDOS</p>
+
+            <h2>Seis momentos, infinitas razones</h2>
+
+            <p class="muted">
+                Cada foto guarda una parte de nuestra historia.
+            </p>
+
+            <div class="gallery">
+
+                <div class="gallery-item">
+                    <figure class="photo-frame">
+                        <img src="img/foto1.jpg" alt="Recuerdo 1">
+                    </figure>
+                    <figcaption>Desde que llegaste</figcaption>
+                </div>
+
+                <div class="gallery-item">
+                    <figure class="photo-frame">
+                        <img src="img/foto2.jpg" alt="Recuerdo 2">
+                    </figure>
+                    <figcaption>Todo es más</figcaption>
+                </div>
+
+                <div class="gallery-item">
+                    <figure class="photo-frame">
+                        <img src="img/foto3.jpg" alt="Recuerdo 3">
+                    </figure>
+                    <figcaption>Bonito a tu</figcaption>
+                </div>
+
+                <div class="gallery-item">
+                    <figure class="photo-frame">
+                        <img src="img/foto4.jpg" alt="Recuerdo 4">
+                    </figure>
+                    <figcaption>Lado, porque tú</figcaption>
+                </div>
+
+                <div class="gallery-item">
+                    <figure class="photo-frame">
+                        <img src="img/foto5.jpg" alt="Recuerdo 5">
+                    </figure>
+                    <figcaption>Eres mi lugar</figcaption>
+                </div>
+
+                <div class="gallery-item">
+                    <figure class="photo-frame">
+                        <img src="img/foto6.jpg" alt="Recuerdo 6">
+                    </figure>
+                    <figcaption>Favorito 🤍</figcaption>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CARTA -->
+        <section class="section" id="carta">
+            <p class="eyebrow">CIELO</p>
+
+            <h2>Hay algo que quiero decirte</h2>
+
+            <div class="letter-card card">
+                <div class="envelope" id="envelope">
+                    <div class="letter-paper">
+                        <span>Para ti, con amor</span>
+                        <p>♡</p>
+                    </div>
+
+                    <div class="flap"></div>
+
+                    <div class="envelope-front">♥</div>
+                </div>
+
+                <button id="openLetter" class="gold-btn">
+                    Abrir carta
+                </button>
+            </div>
+        </section>
+
+        <!-- MAPA DE LUGARES SIGNIFICATIVOS -->
+        <section class="section" id="lugares">
+            <p class="eyebrow">DONDE EMPEZÓ TODO</p>
+
+            <h2>Nuestros lugares</h2>
+
+            <p class="muted">
+                Toca los marcadores para descubrir por qué cada lugar es especial.
+            </p>
+
+            <div id="map" aria-label="Mapa de nuestros lugares especiales"></div>
+
+
+            <div id="placeList" class="place-list"></div>
+        </section>
+
+        <!-- VALES PARA CANJEAR -->
+        <section class="section" id="vales">
+            <p class="eyebrow">MI AMOR</p>
+
+            <h2>Momentos para canjear</h2>
+
+            <p class="muted">
+                Elige uno de estos cuando quieras vivir ese plan conmigo.
+            </p>
+
+            <div id="couponList" class="coupon-list"></div>
+        </section>
+
+        <!-- RULETA DE PREMIOS -->
+        <section class="section" id="ruleta">
+            <p class="eyebrow">LA SUERTE ESTÁ DE TU LADO</p>
+
+            <h2>La ruleta de los premios</h2>
+
+            <p class="muted">
+                Gira y descubre qué plan te toca reclamar.
+            </p>
+
+            <div class="wheel-wrap">
+                <div class="pointer">▼</div>
+
+                <canvas
+                    id="wheel"
+                    width="600"
+                    height="600"
+                    aria-label="Ruleta de premios"
+                ></canvas>
+            </div>
+
+            <button id="spinWheel" class="gold-btn">
+                Girar la ruleta
+            </button>
+
+            <p id="wheelResult" class="result" aria-live="polite">
+                ¡Que la suerte te acompañe! ♡
+            </p>
+        </section>
+
+        <!-- PREGUNTA FINAL -->
+        <section class="section proposal" id="propuesta">
+
+            <div class="heart">🤍</div>
+
+            <p class="eyebrow">Tengo una pregunta importante para ti…</p>
+
+
+            <h2>¿Puedo ser tu novio?</h2>
+
+
+            <div class="proposal-buttons">
+                <button id="yesBtn" class="gold-btn">
+                    Sí 🤍
+                </button>
+
+                <button id="noBtn" class="outline-btn">
+                    No
+                </button>
+            </div>
+        </section>
+
+        <!-- PIE DE PÁGINA -->
+        <footer>
+            Hecho con cariño, para crear recuerdos que duren mucho más que esta página ♡
+        </footer>
+    </main>
+
+    <!-- VENTANA DE LA CARTA -->
+    <div
+        class="modal"
+        id="letterModal"
+        aria-hidden="true"
+    >
+        <div class="modal-content letter-content">
+            <button
+                class="close-modal"
+                data-close="letterModal"
+                aria-label="Cerrar"
+            >
+                ×
+            </button>
+
+            <p class="eyebrow">CON TODO MI AMOR</p>
+
+            <h2>Una carta para ti</h2>
+
+            <div id="letterText" class="letter-text"></div>
+
+            <button
+                class="outline-btn"
+                data-close="letterModal"
+            >
+                Cerrar carta
+            </button>
+        </div>
+    </div>
+
+    <!-- VENTANA DEL MENSAJE FINAL -->
+    <div
+        class="modal"
+        id="messageModal"
+        aria-hidden="true"
+    >
+        <div class="modal-content">
+            <button
+                class="close-modal"
+                data-close="messageModal"
+                aria-label="Cerrar"
+            >
+                ×
+            </button>
+
+            <div class="big-heart">♥</div>
+
+            <h2 id="messageTitle">¡Sí! 💛</h2>
+
+            <p id="messageBody"></p>
+
+            <button
+                class="gold-btn"
+                data-close="messageModal"
+            >
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <!-- ARCHIVOS JAVASCRIPT -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- GOOGLE MAPS: EL SCRIPT PUEDE SER CARGADO DESDE app.js -->
+    <script async defer id="googleMapsScript"></script>
+</body>
+</html>

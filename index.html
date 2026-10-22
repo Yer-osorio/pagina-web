@@ -1,282 +1,237 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#11100f">
-
-    <title>Un regalo para ti ♡</title>
-
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1c1210">
+  <meta name="description" content="Una experiencia especial, hecha con cariño.">
+  <title>Todo comienza con un pequeño paso</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1c1210;
+      --panel: #241815;
+      --gold: #d8b36a;
+      --cream: #f7efe2;
+      --muted: #d1c2ae;
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--bg); }
+    body {
+      margin: 0;
+      min-height: 100svh;
+      padding: clamp(12px, 3.5vw, 28px);
+      display: grid;
+      place-items: center;
+      color: var(--cream);
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(180, 116, 58, .16), transparent 42%),
+        radial-gradient(ellipse at 90% 90%, rgba(216, 179, 106, .10), transparent 40%),
+        #1c1210;
+      overflow-x: hidden;
+    }
+    .welcome {
+      width: min(100%, 460px);
+      border: 1px solid rgba(216, 179, 106, .4);
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(36, 24, 21, .96);
+      box-shadow: 0 18px 60px rgba(0,0,0,.32), 0 0 0 5px rgba(216,179,106,.035);
+      animation: arrive .9s cubic-bezier(.2,.75,.25,1) both;
+    }
+    .photo {
+      position: relative;
+      height: clamp(210px, 60vw, 310px);
+      min-height: 0;
+      overflow: hidden;
+      background: #33231d;
+    }
+    .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 43%;
+      animation: photoReveal 1.2s ease both;
+    }
+    .photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20,12,10,.03) 20%, rgba(20,12,10,.08) 48%, rgba(20,12,10,.84) 100%);
+      pointer-events: none;
+    }
+    .photo-frame {
+      position: absolute;
+      z-index: 1;
+      inset: 12px;
+      border: 1px solid rgba(255,239,211,.5);
+      border-radius: 15px;
+      pointer-events: none;
+    }
+    .photo-caption {
+      position: absolute;
+      z-index: 2;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.55);
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 10px;
+      line-height: 1.4;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .photo-caption h2 {
+      margin: 0;
+      max-width: 340px;
+      font: 500 clamp(21px, 5.7vw, 27px)/1.13 "Playfair Display", serif;
+      letter-spacing: -.02em;
+    }
+    .content {
+      padding: clamp(24px, 6vw, 34px) clamp(22px, 6vw, 34px) 30px;
+      border-top: 1px solid rgba(216,179,106,.22);
+    }
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+      margin: 0 0 22px;
+      font-size: 12px;
+    }
+    .ornament::before, .ornament::after {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: rgba(216,179,106,.5);
+    }
+    .content .eyebrow { margin-bottom: 12px; }
+    h1 {
+      margin: 0;
+      font: 500 clamp(36px, 10vw, 48px)/1.02 "Playfair Display", serif;
+      letter-spacing: -.045em;
+      overflow-wrap: break-word;
+    }
+    h1 span {
+      display: block;
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 400;
+      margin-top: 5px;
+    }
+    .description {
+      margin: 20px 0 0;
+      color: #e0d5c7;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .question {
+      margin: 16px 0 20px;
+      color: #cbb79f;
+      font: italic 17px/1.45 "Playfair Display", serif;
+    }
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      min-height: 54px;
+      padding: 14px 20px;
+      border: 1px solid #f4dfb0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f0d69b, #d5b16a);
+      color: #241812;
+      font: 500 13px/1.3 "DM Sans", sans-serif;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.55);
+      transition: transform .2s ease, filter .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cta span:first-child { text-align: center; flex: 1; }
+    .cta .arrow { font-size: 20px; line-height: 1; }
+    .cta:active { transform: scale(.985); }
+    .cta:focus-visible { outline: 3px solid #fff0ca; outline-offset: 4px; }
+    .footnote {
+      margin: 15px 0 0;
+      color: #9f8d7a;
+      font-size: 10px;
+      line-height: 1.5;
+      text-align: center;
+      letter-spacing: .04em;
+    }
+    .sparkle {
+      position: fixed;
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: #f5d994;
+      box-shadow: 0 0 10px 2px rgba(245,217,148,.35);
+      pointer-events: none;
+      animation: twinkle 3.5s ease-in-out infinite;
+      opacity: .6;
+    }
+    .sparkle.one { top: 13%; left: 8%; }
+    .sparkle.two { top: 24%; right: 9%; animation-delay: 1s; }
+    .sparkle.three { bottom: 14%; left: 12%; animation-delay: 2s; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(18px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes photoReveal { from { transform: scale(1.06); filter: brightness(.7); } to { transform: scale(1); filter: brightness(1); } }
+    @keyframes twinkle { 0%,100% { opacity: .18; transform: scale(.7); } 50% { opacity: .85; transform: scale(1.5); } }
+    @media (min-width: 700px) {
+      body { padding: 32px; }
+      .welcome { width: min(100%, 760px); display: grid; grid-template-columns: .92fr 1fr; }
+      .photo { height: auto; min-height: 570px; }
+      .photo-caption { left: 25px; right: 25px; bottom: 26px; }
+      .content { align-self: center; padding: 42px 34px; border-top: 0; border-left: 1px solid rgba(216,179,106,.22); }
+      h1 { font-size: clamp(38px, 5vw, 52px); }
+      .description { font-size: 14px; }
+    }
+    @media (max-width: 360px) {
+      body { padding: 10px; }
+      .welcome { border-radius: 17px; }
+      .photo { height: 205px; }
+      .photo-caption { left: 18px; right: 18px; bottom: 17px; }
+      .content { padding: 22px 18px 24px; }
+      h1 { font-size: clamp(32px, 9.5vw, 36px); }
+      .description { font-size: 12px; line-height: 1.7; }
+      .question { font-size: 16px; }
+      .cta { padding: 13px 15px; font-size: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- BARRA SUPERIOR -->
-    <header class="topbar">
-        <span>♥ Un pequeño regalo</span>
-        <span class="step">HECHO CON AMOR</span>
-    </header>
-
-    <main>
-        <!-- PORTADA Y CONTADOR -->
-        <section class="hero">
-            <p class="eyebrow">PARA MI PERSONA FAVORITA</p>
-
-            <h1>
-                <span id="nameOne">Tu nombre</span>
-                <em>&</em>
-                <span id="nameTwo">Mi amor</span>
-            </h1>
-
-            <div class="hero-photo photo-frame">
-                <img src="img/foto0.jpg" alt="Nuestro recuerdo especial">
-            </div>
-
-            <div class="counter card">
-                <p>Juntos desde hace</p>
-                <h2 id="timeTogether">Calculando nuestro tiempo…</h2>
-                <small id="startDateLabel"></small>
-            </div>
-
-            <p class="scroll-hint">
-                DESLIZA PARA VER NUESTROS RECUERDOS ↓
-            </p>
-        </section>
-
-        <!-- GALERÍA DE SEIS FOTOGRAFÍAS -->
-        <section class="section" id="recuerdos">
-            <p class="eyebrow">NUESTROS RECUERDOS</p>
-
-            <h2>Seis momentos, infinitas razones</h2>
-
-            <p class="muted">
-                Cada foto guarda una parte de nuestra historia.
-            </p>
-
-            <div class="gallery">
-
-                <div class="gallery-item">
-                    <figure class="photo-frame">
-                        <img src="img/foto1.jpg" alt="Recuerdo 1">
-                    </figure>
-                    <figcaption>Desde que llegaste</figcaption>
-                </div>
-
-                <div class="gallery-item">
-                    <figure class="photo-frame">
-                        <img src="img/foto2.jpg" alt="Recuerdo 2">
-                    </figure>
-                    <figcaption>Todo es más</figcaption>
-                </div>
-
-                <div class="gallery-item">
-                    <figure class="photo-frame">
-                        <img src="img/foto3.jpg" alt="Recuerdo 3">
-                    </figure>
-                    <figcaption>Bonito a tu</figcaption>
-                </div>
-
-                <div class="gallery-item">
-                    <figure class="photo-frame">
-                        <img src="img/foto4.jpg" alt="Recuerdo 4">
-                    </figure>
-                    <figcaption>Lado, porque tú</figcaption>
-                </div>
-
-                <div class="gallery-item">
-                    <figure class="photo-frame">
-                        <img src="img/foto5.jpg" alt="Recuerdo 5">
-                    </figure>
-                    <figcaption>Eres mi lugar</figcaption>
-                </div>
-
-                <div class="gallery-item">
-                    <figure class="photo-frame">
-                        <img src="img/foto6.jpg" alt="Recuerdo 6">
-                    </figure>
-                    <figcaption>Favorito 🤍</figcaption>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- CARTA -->
-        <section class="section" id="carta">
-            <p class="eyebrow">CIELO</p>
-
-            <h2>Hay algo que quiero decirte</h2>
-
-            <div class="letter-card card">
-                <div class="envelope" id="envelope">
-                    <div class="letter-paper">
-                        <span>Para ti, con amor</span>
-                        <p>♡</p>
-                    </div>
-
-                    <div class="flap"></div>
-
-                    <div class="envelope-front">♥</div>
-                </div>
-
-                <button id="openLetter" class="gold-btn">
-                    Abrir carta
-                </button>
-            </div>
-        </section>
-
-        <!-- MAPA DE LUGARES SIGNIFICATIVOS -->
-        <section class="section" id="lugares">
-            <p class="eyebrow">DONDE EMPEZÓ TODO</p>
-
-            <h2>Nuestros lugares</h2>
-
-            <p class="muted">
-                Toca los marcadores para descubrir por qué cada lugar es especial.
-            </p>
-
-            <div id="map" aria-label="Mapa de nuestros lugares especiales"></div>
-
-
-            <div id="placeList" class="place-list"></div>
-        </section>
-
-        <!-- VALES PARA CANJEAR -->
-        <section class="section" id="vales">
-            <p class="eyebrow">MI AMOR</p>
-
-            <h2>Momentos para canjear</h2>
-
-            <p class="muted">
-                Elige uno de estos cuando quieras vivir ese plan conmigo.
-            </p>
-
-            <div id="couponList" class="coupon-list"></div>
-        </section>
-
-        <!-- RULETA DE PREMIOS -->
-        <section class="section" id="ruleta">
-            <p class="eyebrow">LA SUERTE ESTÁ DE TU LADO</p>
-
-            <h2>La ruleta de los premios</h2>
-
-            <p class="muted">
-                Gira y descubre qué plan te toca reclamar.
-            </p>
-
-            <div class="wheel-wrap">
-                <div class="pointer">▼</div>
-
-                <canvas
-                    id="wheel"
-                    width="600"
-                    height="600"
-                    aria-label="Ruleta de premios"
-                ></canvas>
-            </div>
-
-            <button id="spinWheel" class="gold-btn">
-                Girar la ruleta
-            </button>
-
-            <p id="wheelResult" class="result" aria-live="polite">
-                ¡Que la suerte te acompañe! ♡
-            </p>
-        </section>
-
-        <!-- PREGUNTA FINAL -->
-        <section class="section proposal" id="propuesta">
-
-            <div class="heart">🤍</div>
-
-            <p class="eyebrow">Tengo una pregunta importante para ti…</p>
-
-
-            <h2>¿Puedo ser tu novio?</h2>
-
-
-            <div class="proposal-buttons">
-                <button id="yesBtn" class="gold-btn">
-                    Sí 🤍
-                </button>
-
-                <button id="noBtn" class="outline-btn">
-                    No
-                </button>
-            </div>
-        </section>
-
-        <!-- PIE DE PÁGINA -->
-        <footer>
-            Hecho con cariño, para crear recuerdos que duren mucho más que esta página ♡
-        </footer>
-    </main>
-
-    <!-- VENTANA DE LA CARTA -->
-    <div
-        class="modal"
-        id="letterModal"
-        aria-hidden="true"
-    >
-        <div class="modal-content letter-content">
-            <button
-                class="close-modal"
-                data-close="letterModal"
-                aria-label="Cerrar"
-            >
-                ×
-            </button>
-
-            <p class="eyebrow">CON TODO MI AMOR</p>
-
-            <h2>Una carta para ti</h2>
-
-            <div id="letterText" class="letter-text"></div>
-
-            <button
-                class="outline-btn"
-                data-close="letterModal"
-            >
-                Cerrar carta
-            </button>
-        </div>
-    </div>
-
-    <!-- VENTANA DEL MENSAJE FINAL -->
-    <div
-        class="modal"
-        id="messageModal"
-        aria-hidden="true"
-    >
-        <div class="modal-content">
-            <button
-                class="close-modal"
-                data-close="messageModal"
-                aria-label="Cerrar"
-            >
-                ×
-            </button>
-
-            <div class="big-heart">♥</div>
-
-            <h2 id="messageTitle">¡Sí! 💛</h2>
-
-            <p id="messageBody"></p>
-
-            <button
-                class="gold-btn"
-                data-close="messageModal"
-            >
-                Cerrar
-            </button>
-        </div>
-    </div>
-
-    <!-- ARCHIVOS JAVASCRIPT -->
-    <script src="js/config.js"></script>
-    <script src="js/app.js"></script>
-
-    <!-- GOOGLE MAPS: EL SCRIPT PUEDE SER CARGADO DESDE app.js -->
-    <script async defer id="googleMapsScript"></script>
+  <span class="sparkle one" aria-hidden="true"></span>
+  <span class="sparkle two" aria-hidden="true"></span>
+  <span class="sparkle three" aria-hidden="true"></span>
+  <main class="welcome">
+    <section class="photo" aria-label="Una fotografía especial">
+      <!-- Cambia foto0.jpg si tu fotografía tiene otro nombre o extensión. -->
+      <img src="img/foto0.jpg" alt="Un recuerdo especial juntos">
+      <span class="photo-frame" aria-hidden="true"></span>
+      <div class="photo-caption">
+        <p class="eyebrow">Para ti, con cariño</p>
+        <h2>Hay momentos que merecen vivirse despacio.</h2>
+      </div>
+    </section>
+    <section class="content">
+      <div class="ornament" aria-hidden="true">♡</div>
+      <p class="eyebrow">Una experiencia especial</p>
+      <h1>Todo comienza <span>con un pequeño paso...</span></h1>
+      <p class="description">Toda gran historia comienza con un pequeño paso. Hoy quiero invitarte a vivir algo diferente, una aventura hecha de recuerdos, sonrisas y momentos que espero que nunca olvides.</p>
+      <p class="question">¿Lista para descubrir lo que preparé para ti?</p>
+      <a class="cta" href="historia.html"><span>Comenzar nuestra aventura</span><span class="arrow" aria-hidden="true">→</span></a>
+      <p class="footnote">Un paso a la vez, sin adelantar el final.</p>
+    </section>
+  </main>
 </body>
 </html>
