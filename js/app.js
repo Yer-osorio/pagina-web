@@ -176,30 +176,63 @@ function escapeHTML(value) {
 // LISTA DE LUGARES ESPECIALES
 // ========================================
 
+let giftMap = null;
+let placeMarkers = [];
+let placeInfoWindow = null;
+let activePlaceIndex = -1;
+
+function selectPlace(index) {
+    const place = cfg.places[index];
+    const marker = placeMarkers[index];
+    if (!place || !giftMap || !marker) return;
+
+    activePlaceIndex = index;
+    document.querySelectorAll(".place-item").forEach((item, itemIndex) => {
+        item.classList.toggle("is-active", itemIndex === index);
+        item.setAttribute("aria-pressed", itemIndex === index ? "true" : "false");
+    });
+
+    const position = {
+        lat: Number(place.lat),
+        lng: Number(place.lng),
+    };
+
+    // Animación suave hacia el recuerdo seleccionado y acercamiento automático.
+    giftMap.panTo(position);
+    giftMap.setZoom(16);
+
+    placeInfoWindow.setContent(`
+        <div style="color:#222;max-width:240px;padding:4px">
+            <strong>${escapeHTML(place.title)}</strong>
+            <p style="margin:8px 0 0;line-height:1.5">${escapeHTML(place.description)}</p>
+        </div>
+    `);
+    placeInfoWindow.open({ map: giftMap, anchor: marker });
+}
+
 function renderPlaces() {
     const list = $("#placeList");
     list.innerHTML = "";
 
     cfg.places.forEach((place, index) => {
-        const element = document.createElement("div");
+        const element = document.createElement("button");
+        element.type = "button";
         element.className = "place-item";
+        element.setAttribute("aria-pressed", "false");
+        element.setAttribute("aria-label", `Ver en el mapa: ${place.title}`);
 
         element.innerHTML = `
             <div>
-                <h3>
-                    ${index + 1}. ${escapeHTML(place.title)}
-                </h3>
-
-                <p>
-                    ${escapeHTML(place.description)}
-                </p>
+                <h3>${index + 1}. ${escapeHTML(place.title)}</h3>
+                <p>${escapeHTML(place.description)}</p>
             </div>
+            <span class="place-item__arrow" aria-hidden="true">↗</span>
         `;
 
+        element.addEventListener("click", () => selectPlace(index));
         list.appendChild(element);
     });
 }
-
 renderPlaces();
 
 
@@ -296,11 +329,11 @@ window.initGiftMap = function () {
         }
     );
 
-    // Crear la ventana de información de los marcadores.
-    const info = new google.maps.InfoWindow();
+    giftMap = map;
+    placeInfoWindow = new google.maps.InfoWindow();
 
-    // Agregar un marcador por cada lugar configurado.
-    cfg.places.forEach((place) => {
+    // Crear marcadores y vincularlos con las tarjetas de recuerdos.
+    cfg.places.forEach((place, index) => {
         const marker = new google.maps.Marker({
             position: {
                 lat: Number(place.lat),
@@ -310,32 +343,10 @@ window.initGiftMap = function () {
             title: place.title,
         });
 
-        // Mostrar los detalles al pulsar el marcador.
-        marker.addListener("click", () => {
-            info.setContent(`
-                <div style="
-                    color: #222222;
-                    max-width: 240px;
-                    padding: 4px;
-                ">
-                    <strong>
-                        ${escapeHTML(place.title)}
-                    </strong>
+        placeMarkers[index] = marker;
 
-                    <p style="
-                        margin: 8px 0 0;
-                        line-height: 1.5;
-                    ">
-                        ${escapeHTML(place.description)}
-                    </p>
-                </div>
-            `);
-
-            info.open({
-                map: map,
-                anchor: marker,
-            });
-        });
+        // Pulsar un marcador también resalta su tarjeta correspondiente.
+        marker.addListener("click", () => selectPlace(index));
     });
 };
 
