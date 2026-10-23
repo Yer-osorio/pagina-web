@@ -42,17 +42,17 @@ Yerson.`,
   // Obtén una clave en Google Cloud Console y habilita Maps JavaScript API. lat: 6.187291, lng: -75.645509
   googleMapsApiKey: "AIzaSyCnwo_HC6uC8AS6gs-ZJNsRYLHhJGiFT6A",
   places: [
-    { title: "Nuestro primer lugar", description: "Aquí vivimos un momento especial.", lat: 6.340444, lng: -75.549130 },
+    { title: "Nuestro primer lugar", description: "Aquí quedé flechado por ti.", lat: 6.340444, lng: -75.549130 },
     { title: "Un recuerdo bonito", description: "Un lugar que siempre me hará sonreír.", lat: 6.299798, lng: -75.473642 },
-    { title: "Nuestro primer viaje a la playa", description: "Tenemos que regresar juntos.", lat: 8.472524, lng: -76.805657 },
-    { title: "Nuestro primera cita", description: "Los girasoles hablaron", lat: 6.363085, lng: -75.570193 },
+    { title: "Nuestro primer viaje a la playa", description: "Tenemos que regresar a la playa juntos.", lat: 8.472524, lng: -76.805657 },
+    { title: "Nuestro primera cita", description: "Los girasoles hablaron🤭", lat: 6.363085, lng: -75.570193 },
     { title: "Donde te vas a volver mi novia", description: "Un poco lejos pero especial", lat: 6.187067, lng: -75.645530 }
 
   ],
   coupons: [
     { title: "Una cita sorpresa", description: "Yo planeo la cita y tú solo disfrutas." },
-    { title: "Tu comida favorita", description: "Un plan para comer eso que tanto te gusta." },
-    { title: "Una tarde de películas", description: "Película, snacks y muchos abrazos." },
+    { title: "Tu comida favorita", description: "Un plan para ir a comer sushi." },
+    { title: "Una tarde de películas", description: "Película, mecato y muchos abrazos." },
     { title: "Un paseo juntos", description: "Elegimos un lugar y hacemos un recuerdo nuevo." }
   ],
   prizes: ["Una cita sorpresa", "Un abrazo largo", "Tu comida favorita", "Noche de películas", "Un paseo juntos", "Un beso", "Tú eliges el plan", "Un detalle especial"]
