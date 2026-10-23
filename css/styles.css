@@ -640,3 +640,50 @@ footer {
         font-size: 9px;
     }
 }
+
+
+/* Tarjetas de recuerdos interactivas: al pulsarlas, el mapa enfoca ese lugar. */
+button.place-item {
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color .22s ease, background .22s ease, transform .22s ease, box-shadow .22s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+button.place-item:hover,
+button.place-item:focus-visible {
+    border-color: rgba(216, 179, 106, .65);
+    outline: none;
+    transform: translateY(-1px);
+}
+button.place-item.is-active {
+    border-color: var(--gold2);
+    background: linear-gradient(135deg, rgba(216, 179, 106, .12), var(--panel));
+    box-shadow: inset 3px 0 0 var(--gold2), 0 5px 18px rgba(0, 0, 0, .12);
+}
+.place-item > div {
+    min-width: 0;
+    flex: 1;
+}
+.place-item__arrow {
+    flex: 0 0 auto;
+    color: var(--gold2);
+    font-size: 18px;
+    opacity: .75;
+    transition: transform .22s ease, opacity .22s ease;
+}
+.place-item.is-active .place-item__arrow {
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+@media (max-width: 480px) {
+    button.place-item {
+        min-height: 58px;
+        padding: 14px 13px;
+        gap: 10px;
+    }
+    .place-item h3 { line-height: 1.45; }
+    .place-item p { line-height: 1.55; }
+}
